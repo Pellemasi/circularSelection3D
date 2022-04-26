@@ -69,10 +69,21 @@ body {
   background-color: #ff00005c;
 }
 
-.rotator div div a {
+.rotator div div div {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   position: relative;
+  background-color: #3fdc145c;
+  margin-left: var(--radiusSize);
+  border-radius: 1em;
+  width: var(--bubbleSize);
+  height: var(--bubbleSize);
+}
+
+.rotator div div div a {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -86,39 +97,72 @@ body {
   padding: 1em;
   background-color: blue;
   float: right;
-  margin-left: var(--radiusSize);
+  -webkit-animation: orbitReverse var(--animationSpeed) linear infinite;
+          animation: orbitReverse var(--animationSpeed) linear infinite;
   border-radius: 1em;
   width: var(--bubbleSize);
   height: var(--bubbleSize);
 }
 
-.center1pivit .link1container .link1bubble {
-  -webkit-transform: rotateX(-90deg) rotateY(0deg);
-          transform: rotateX(-90deg) rotateY(0deg);
+.center1pivit {
+  position: absolute;
+  --rotationAmount: 0deg;
+  -webkit-transform: rotateZ(var(--rotationAmount));
+          transform: rotateZ(var(--rotationAmount));
+}
+
+.center1pivit .link1container .hub .link1bubble {
+  -webkit-transform: rotateX(-90deg) rotateY(var(--rotationAmount));
+          transform: rotateX(-90deg) rotateY(var(--rotationAmount));
 }
 
 .center2pivit {
-  --rotationAmount: 72deg;
-  -webkit-transform: rotate(var(--rotationAmount));
-          transform: rotate(var(--rotationAmount));
+  --rotationAmount: 240deg;
+  -webkit-transform: rotateZ(var(--rotationAmount));
+          transform: rotateZ(var(--rotationAmount));
 }
 
-.center2pivit .link2container .link2bubble {
+.center2pivit .link2container .hub .link2bubble {
+  -webkit-transform: rotateX(-90deg) rotateY(var(--rotationAmount));
+          transform: rotateX(-90deg) rotateY(var(--rotationAmount));
+}
+
+.center3pivit {
+  --rotationAmount: 120deg;
+  -webkit-transform: rotateZ(var(--rotationAmount));
+          transform: rotateZ(var(--rotationAmount));
+}
+
+.center3pivit .link3container .hub .link3bubble {
   -webkit-transform: rotateX(-90deg) rotateY(var(--rotationAmount));
           transform: rotateX(-90deg) rotateY(var(--rotationAmount));
 }
 
 @-webkit-keyframes orbit {
   100% {
-    -webkit-transform: rotateZ(360deg);
-            transform: rotateZ(360deg);
+    -webkit-transform: rotateX(90deg) rotateZ(360deg);
+            transform: rotateX(90deg) rotateZ(360deg);
   }
 }
 
 @keyframes orbit {
   100% {
-    -webkit-transform: rotateZ(360deg);
-            transform: rotateZ(360deg);
+    -webkit-transform: rotateX(90deg) rotateZ(360deg);
+            transform: rotateX(90deg) rotateZ(360deg);
+  }
+}
+
+@-webkit-keyframes orbitReverse {
+  100% {
+    -webkit-transform: rotateX(-90deg) rotateY(360deg);
+            transform: rotateX(-90deg) rotateY(360deg);
+  }
+}
+
+@keyframes orbitReverse {
+  100% {
+    -webkit-transform: rotateX(-90deg) rotateY(360deg);
+            transform: rotateX(-90deg) rotateY(360deg);
   }
 }
 /*# sourceMappingURL=styles.css.map */

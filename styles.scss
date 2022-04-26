@@ -33,8 +33,7 @@ body {
   height: 100%;
   margin: 0;
   border-radius: 50%;
-
-  transform: rotateX(90deg) /* circular rotation */ rotateZ(0deg);
+  transform: rotateX(90deg) rotateZ(0deg);
   animation: orbit var(--animationSpeed) linear infinite;
   div {
     transform-style: preserve-3d;
@@ -45,43 +44,74 @@ body {
       transform-style: preserve-3d;
       position: absolute;
       background-color: #ff00005c;
-
-      //overall link bubble settings
-      a {
+      div {
+        //overall link bubble settings
         transform-style: preserve-3d;
         position: relative;
-        display: flex;
-        place-content: center;
-        align-items: center;
-        color: antiquewhite;
-        font-weight: bold;
-        text-align: center;
-        padding: 1em;
-        background-color: blue;
-        float: right;
+        background-color: #3fdc145c;
         margin-left: var(--radiusSize);
         border-radius: 1em;
         width: var(--bubbleSize);
         height: var(--bubbleSize);
+        a {
+          transform-style: preserve-3d;
+          position: absolute;
+          display: flex;
+          place-content: center;
+          align-items: center;
+          color: antiquewhite;
+          font-weight: bold;
+          text-align: center;
+          padding: 1em;
+          background-color: blue;
+          float: right;
+
+          //reverse adjust to overall circle animation (links keep facing forwards)
+          animation: orbitReverse var(--animationSpeed) linear infinite;
+          border-radius: 1em;
+          width: var(--bubbleSize);
+          height: var(--bubbleSize);
+        }
       }
     }
   }
 }
 
+//individual link containers, why does the pivit point rotation affect the reversing adjust animation??
+
 .center1pivit {
+  position: absolute;
+  --rotationAmount: 0deg;
+  transform: rotateZ(var(--rotationAmount));
   .link1container {
-    .link1bubble {
-      transform: rotateX(-90deg) rotateY(0deg);
+    .hub {
+      .link1bubble {
+        transform: rotateX(-90deg) rotateY(var(--rotationAmount));
+      }
     }
   }
 }
 
 .center2pivit {
-  --rotationAmount: 72deg;
-  transform: rotate(var(--rotationAmount));
+  --rotationAmount: 240deg;
+  transform: rotateZ(var(--rotationAmount));
   .link2container {
-    .link2bubble {
-      transform: rotateX(-90deg) rotateY(var(--rotationAmount));
+    .hub {
+      .link2bubble {
+        transform: rotateX(-90deg) rotateY(var(--rotationAmount));
+      }
+    }
+  }
+}
+
+.center3pivit {
+  --rotationAmount: 120deg;
+  transform: rotateZ(var(--rotationAmount));
+  .link3container {
+    .hub {
+      .link3bubble {
+        transform: rotateX(-90deg) rotateY(var(--rotationAmount));
+      }
     }
   }
 }
@@ -89,6 +119,14 @@ body {
 //animations
 @keyframes orbit {
   100% {
-    transform: rotateZ(360deg);
+    transform: rotateX(90deg) rotateZ(360deg);
+  }
+}
+
+//how does this work??
+
+@keyframes orbitReverse {
+  100% {
+    transform: rotateX(-90deg) rotateY(360deg);
   }
 }
