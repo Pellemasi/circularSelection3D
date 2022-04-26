@@ -2,9 +2,11 @@ body {
   background-color: rgb(26, 26, 26);
   display: flex;
   place-content: center;
+  margin: 0;
+
   --bubbleSize: 3rem;
   --radiusSize: 7rem;
-  margin: 0;
+  --animationSpeed: 40s;
 }
 
 .WheelContainer {
@@ -32,13 +34,13 @@ body {
   margin: 0;
   border-radius: 50%;
 
-  transform: rotateX(90deg);
-
+  transform: rotateX(90deg) /* circular rotation */ rotateZ(0deg);
+  animation: orbit var(--animationSpeed) linear infinite;
   div {
     transform-style: preserve-3d;
     display: flex;
-    place-content: left; //control vertical alignement
-    align-items: center; //control horizontal alignement
+    place-content: left;
+    align-items: center;
     div {
       transform-style: preserve-3d;
       position: absolute;
@@ -61,7 +63,6 @@ body {
         border-radius: 1em;
         width: var(--bubbleSize);
         height: var(--bubbleSize);
-        transform: rotateX(-90deg) rotateY(90deg);
       }
     }
   }
@@ -70,15 +71,24 @@ body {
 .center1pivit {
   .link1container {
     .link1bubble {
+      transform: rotateX(-90deg) rotateY(0deg);
     }
   }
 }
 
 .center2pivit {
-  --rotationAmount: 45deg;
+  --rotationAmount: 72deg;
   transform: rotate(var(--rotationAmount));
   .link2container {
     .link2bubble {
+      transform: rotateX(-90deg) rotateY(var(--rotationAmount));
     }
+  }
+}
+
+//animations
+@keyframes orbit {
+  100% {
+    transform: rotateZ(360deg);
   }
 }
