@@ -1,0 +1,31 @@
+body {
+  background-color: rgb(26, 26, 26);
+  display: flex;
+  place-content: center;
+}
+
+.WheelContainer {
+  width: 20em;
+  height: 20em;
+  background-color: aqua;
+  display: flex;
+  place-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.rotator {
+  display: flex;
+  place-content: center; //control vertical alignement
+  align-items: center; //control horizontal alignement
+  position: absolute;
+  background-color: beige;
+  width: 50%;
+  height: 50%;
+}
+
+.link1container {
+  background-color: red;
+  width: 50%;
+  height: 50%;
+}

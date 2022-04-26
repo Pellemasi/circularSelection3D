@@ -1,0 +1,42 @@
+body {
+  background-color: #1a1a1a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-content: center;
+}
+
+.WheelContainer {
+  width: 20em;
+  height: 20em;
+  background-color: aqua;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.rotator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  background-color: beige;
+  width: 50%;
+  height: 50%;
+}
+
+.link1container {
+  background-color: red;
+  width: 50%;
+  height: 50%;
+}
+/*# sourceMappingURL=styles.css.map */
