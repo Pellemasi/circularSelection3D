@@ -4,6 +4,9 @@ body {
   display: -ms-flexbox;
   display: flex;
   place-content: center;
+  --bubbleSize: 3rem;
+  --radiusSize: 7rem;
+  margin: 0;
 }
 
 .WheelContainer {
@@ -32,11 +35,76 @@ body {
   background-color: beige;
   width: 50%;
   height: 50%;
+  margin: 0;
 }
 
-.link1container {
+.rotator .center1rotator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  background-color: green;
+}
+
+.center1pivit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  background-color: green;
+}
+
+.center1pivit .link1container {
+  position: absolute;
   background-color: red;
-  width: 50%;
-  height: 50%;
+}
+
+.center1pivit .link1container .link1bubble {
+  width: 2rem;
+  height: 2rem;
+  background-color: blue;
+  float: right;
+  margin-left: var(--radiusSize);
+  border-radius: 2em;
+  width: var(--bubbleSize);
+  height: var(--bubbleSize);
+}
+
+.center2pivit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  background-color: green;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.center2pivit .link2container {
+  position: absolute;
+  background-color: red;
+}
+
+.center2pivit .link2container .link2bubble {
+  width: 2rem;
+  height: 2rem;
+  background-color: blue;
+  float: right;
+  margin-left: var(--radiusSize);
+  border-radius: 2em;
+  width: var(--bubbleSize);
+  height: var(--bubbleSize);
 }
 /*# sourceMappingURL=styles.css.map */

@@ -2,6 +2,9 @@ body {
   background-color: rgb(26, 26, 26);
   display: flex;
   place-content: center;
+  --bubbleSize: 3rem;
+  --radiusSize: 7rem;
+  margin: 0;
 }
 
 .WheelContainer {
@@ -22,10 +25,58 @@ body {
   background-color: beige;
   width: 50%;
   height: 50%;
+  margin: 0;
+  .center1rotator {
+    display: flex;
+    place-content: left; //control vertical alignement
+    align-items: center; //control horizontal alignement
+    position: absolute;
+    background-color: green;
+  }
 }
 
-.link1container {
-  background-color: red;
-  width: 50%;
-  height: 50%;
+.center1pivit {
+  display: flex;
+  place-content: left; //control vertical alignement
+  align-items: center; //control horizontal alignement
+  position: absolute;
+  background-color: green;
+
+  .link1container {
+    position: absolute;
+    background-color: red;
+    .link1bubble {
+      width: 2rem;
+      height: 2rem;
+      background-color: blue;
+      float: right;
+      margin-left: var(--radiusSize);
+      border-radius: 2em;
+      width: var(--bubbleSize);
+      height: var(--bubbleSize);
+    }
+  }
+}
+
+.center2pivit {
+  display: flex;
+  place-content: left; //control vertical alignement
+  align-items: center; //control horizontal alignement
+  position: absolute;
+  background-color: green;
+  transform: rotate(45deg);
+  .link2container {
+    position: absolute;
+    background-color: red;
+    .link2bubble {
+      width: 2rem;
+      height: 2rem;
+      background-color: blue;
+      float: right;
+      margin-left: var(--radiusSize);
+      border-radius: 2em;
+      width: var(--bubbleSize);
+      height: var(--bubbleSize);
+    }
+  }
 }
