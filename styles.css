@@ -21,6 +21,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  border-radius: 50%;
 }
 
 .rotator {
@@ -36,9 +37,12 @@ body {
   width: 50%;
   height: 50%;
   margin: 0;
+  border-radius: 50%;
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
 }
 
-.rotator .center1rotator {
+.rotator div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,65 +50,47 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.rotator div div {
   position: absolute;
-  background-color: green;
+  background-color: red;
+}
+
+.rotator div div a {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: antiquewhite;
+  font-weight: bold;
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: blue;
+  float: right;
+  margin-left: var(--radiusSize);
+  border-radius: 2em;
+  width: var(--bubbleSize);
+  height: var(--bubbleSize);
 }
 
 .center1pivit {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  place-content: left;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   position: absolute;
-  background-color: green;
-}
-
-.center1pivit .link1container {
-  position: absolute;
-  background-color: red;
-}
-
-.center1pivit .link1container .link1bubble {
-  width: 2rem;
-  height: 2rem;
-  background-color: blue;
-  float: right;
-  margin-left: var(--radiusSize);
-  border-radius: 2em;
-  width: var(--bubbleSize);
-  height: var(--bubbleSize);
 }
 
 .center2pivit {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  place-content: left;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: absolute;
-  background-color: green;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-.center2pivit .link2container {
-  position: absolute;
-  background-color: red;
+  --rotationAmount: 45deg;
+  -webkit-transform: rotate(var(--rotationAmount));
+          transform: rotate(var(--rotationAmount));
 }
 
 .center2pivit .link2container .link2bubble {
-  width: 2rem;
-  height: 2rem;
-  background-color: blue;
-  float: right;
-  margin-left: var(--radiusSize);
-  border-radius: 2em;
-  width: var(--bubbleSize);
-  height: var(--bubbleSize);
+  -webkit-transform: rotate(calc(-1 * var(--rotationAmount)));
+          transform: rotate(calc(-1 * var(--rotationAmount)));
 }
 /*# sourceMappingURL=styles.css.map */
