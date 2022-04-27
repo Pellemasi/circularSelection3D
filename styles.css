@@ -141,6 +141,8 @@ body {
 .rotator div div div a {
   border-radius: var(--bubbleBorderRadius);
   background-color: #f04db7;
+  -webkit-box-shadow: 0 0 0.5em #000a inset;
+          box-shadow: 0 0 0.5em #000a inset;
   -webkit-animation: orbitReverse var(--animationSpeed) linear infinite;
           animation: orbitReverse var(--animationSpeed) linear infinite;
   display: -webkit-box;

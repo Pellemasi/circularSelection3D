@@ -100,7 +100,7 @@ body {
           //overall link bubble settings
           border-radius: var(--bubbleBorderRadius);
           background-color: #f04db7;
-
+          box-shadow: 0 0 0.5em #000a inset;
           //reverse adjust to overall circle animation (links keep facing forwards)
           animation: orbitReverse var(--animationSpeed) linear infinite;
           display: flex;
