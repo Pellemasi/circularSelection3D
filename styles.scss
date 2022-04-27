@@ -3,13 +3,13 @@ body {
   display: flex;
   place-content: center;
   margin: 0;
-
-  --bubbleSize: 3rem;
-  --radiusSize: 7rem;
-  --animationSpeed: 40s;
 }
 
 .WheelContainer {
+  --bubbleSize: 6rem;
+  --radiusSize: 7rem;
+  --animationSpeed: 40s;
+
   width: 20em;
   height: 20em;
   background-color: aqua;
@@ -35,6 +35,17 @@ body {
   border-radius: 50%;
   transform: rotateX(90deg) rotateZ(0deg);
   animation: orbit var(--animationSpeed) linear infinite;
+  &:hover {
+    animation-play-state: paused;
+    div {
+      animation-play-state: paused;
+      .link1bubble,
+      .link2bubble,
+      .link3bubble {
+        animation-play-state: paused;
+      }
+    }
+  }
   div {
     transform-style: preserve-3d;
     display: flex;
@@ -43,76 +54,85 @@ body {
     div {
       transform-style: preserve-3d;
       position: absolute;
-      background-color: #ff00005c;
+
       div {
         //overall link bubble settings
         transform-style: preserve-3d;
         position: relative;
-        background-color: #3fdc145c;
         margin-left: var(--radiusSize);
         border-radius: 1em;
         width: var(--bubbleSize);
         height: var(--bubbleSize);
+        transform-style: preserve-3d;
+        position: absolute;
+        display: flex;
+        place-content: center;
+        align-items: center;
+
+        float: right;
+
+        //reverse adjust to overall circle animation (links keep facing forwards)
+
+        border-radius: 1em;
+        width: var(--bubbleSize);
+        height: var(--bubbleSize);
+
         a {
-          transform-style: preserve-3d;
-          position: absolute;
+          border-radius: 2em;
+          background-color: #f04db7;
+          animation: orbitReverse var(--animationSpeed) linear infinite;
           display: flex;
           place-content: center;
           align-items: center;
-          color: antiquewhite;
           font-weight: bold;
           text-align: center;
-          padding: 1em;
-          background-color: blue;
-          float: right;
-
-          //reverse adjust to overall circle animation (links keep facing forwards)
-          animation: orbitReverse var(--animationSpeed) linear infinite;
-          border-radius: 1em;
-          width: var(--bubbleSize);
-          height: var(--bubbleSize);
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          color: antiquewhite;
         }
       }
     }
   }
 }
 
+//hub rotations and stuff
+
+.hub {
+  transform: rotateX(-90deg) rotateY(var(--rotationAmount));
+  .link3bubble {
+  }
+  .link2bubble {
+  }
+  .link1bubble {
+  }
+}
+
 //individual link containers, why does the pivit point rotation affect the reversing adjust animation??
 
 .center1pivit {
-  position: absolute;
   --rotationAmount: 0deg;
+
+  position: absolute;
   transform: rotateZ(var(--rotationAmount));
   .link1container {
-    .hub {
-      .link1bubble {
-        transform: rotateX(-90deg) rotateY(var(--rotationAmount));
-      }
-    }
   }
 }
 
 .center2pivit {
-  --rotationAmount: 240deg;
+  --rotationAmount: 140deg;
+
   transform: rotateZ(var(--rotationAmount));
+  position: absolute;
   .link2container {
-    .hub {
-      .link2bubble {
-        transform: rotateX(-90deg) rotateY(var(--rotationAmount));
-      }
-    }
   }
 }
 
 .center3pivit {
-  --rotationAmount: 120deg;
+  --rotationAmount: 220deg;
+
   transform: rotateZ(var(--rotationAmount));
   .link3container {
-    .hub {
-      .link3bubble {
-        transform: rotateX(-90deg) rotateY(var(--rotationAmount));
-      }
-    }
   }
 }
 
@@ -127,6 +147,6 @@ body {
 
 @keyframes orbitReverse {
   100% {
-    transform: rotateX(-90deg) rotateY(360deg);
+    transform: rotateY(360deg);
   }
 }
