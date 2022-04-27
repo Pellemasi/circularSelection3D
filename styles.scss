@@ -1,5 +1,7 @@
 body {
-  background-color: rgb(26, 26, 26);
+  --backgroundColor: #1b3930;
+
+  background-color: var(--backgroundColor);
   display: flex;
   place-content: center;
   margin: 0;
@@ -38,8 +40,8 @@ body {
   transform: translateZ(16em);
   background-image: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0) 20%,
-    rgb(0, 0, 0)
+    rgba(255, 255, 255, 0) /* Highlight amount */ 10%,
+    var(--backgroundColor)
   );
   pointer-events: none; //makes it transparent
 }
