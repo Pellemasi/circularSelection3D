@@ -8,9 +8,11 @@ body {
 }
 
 .WheelContainer {
-  --bubbleSize: 6rem;
-  --radiusSize: 7rem;
   --animationSpeed: 40s;
+  --radiusSize: 10rem;
+  --bubbleBorderRadius: 1rem;
+  --bubbleHeight: 6rem;
+  --bubbleWidth: 6rem;
   width: 20em;
   height: 20em;
   background-color: aqua;
@@ -26,6 +28,12 @@ body {
           perspective: 40em;
   -webkit-perspective-origin: 50% 10%;
           perspective-origin: 50% 10%;
+}
+
+.shadowEffect {
+  width: 90%;
+  height: 90%;
+  background: rgba(0, 0, 0, 0.402);
 }
 
 .rotator {
@@ -60,11 +68,38 @@ body {
           animation-play-state: paused;
 }
 
+.rotator:hover div a {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
 .rotator:hover div .link1bubble,
 .rotator:hover div .link2bubble,
 .rotator:hover div .link3bubble {
   -webkit-animation-play-state: paused;
           animation-play-state: paused;
+}
+
+.rotator .middleContainer {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: rotateX(-90deg) translateY(-2em);
+          transform: rotateX(-90deg) translateY(-2em);
+}
+
+.rotator .middleContainer a {
+  background-color: brown;
+  width: 3em;
+  height: 3em;
+  -webkit-animation: orbitReverse var(--animationSpeed) linear infinite;
+          animation: orbitReverse var(--animationSpeed) linear infinite;
 }
 
 .rotator div {
@@ -91,8 +126,6 @@ body {
   position: relative;
   margin-left: var(--radiusSize);
   border-radius: 1em;
-  width: var(--bubbleSize);
-  height: var(--bubbleSize);
   transform-style: preserve-3d;
   position: absolute;
   display: -webkit-box;
@@ -103,13 +136,10 @@ body {
       -ms-flex-align: center;
           align-items: center;
   float: right;
-  border-radius: 1em;
-  width: var(--bubbleSize);
-  height: var(--bubbleSize);
 }
 
 .rotator div div div a {
-  border-radius: 2em;
+  border-radius: var(--bubbleBorderRadius);
   background-color: #f04db7;
   -webkit-animation: orbitReverse var(--animationSpeed) linear infinite;
           animation: orbitReverse var(--animationSpeed) linear infinite;
@@ -123,8 +153,8 @@ body {
   font-weight: bold;
   text-align: center;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: var(--bubbleWidth);
+  height: var(--bubbleHeight);
   color: antiquewhite;
 }
 
