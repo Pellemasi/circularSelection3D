@@ -141,14 +141,14 @@ body {
 }
 
 .center2pivit {
-  --rotationAmount: 140deg;
+  --rotationAmount: 72deg;
   -webkit-transform: rotateZ(var(--rotationAmount));
           transform: rotateZ(var(--rotationAmount));
   position: absolute;
 }
 
 .center3pivit {
-  --rotationAmount: 220deg;
+  --rotationAmount: 144deg;
   -webkit-transform: rotateZ(var(--rotationAmount));
           transform: rotateZ(var(--rotationAmount));
 }

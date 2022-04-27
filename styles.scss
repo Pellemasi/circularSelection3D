@@ -120,7 +120,7 @@ body {
 }
 
 .center2pivit {
-  --rotationAmount: 140deg;
+  --rotationAmount: 72deg;
 
   transform: rotateZ(var(--rotationAmount));
   position: absolute;
@@ -129,7 +129,7 @@ body {
 }
 
 .center3pivit {
-  --rotationAmount: 220deg;
+  --rotationAmount: 144deg;
 
   transform: rotateZ(var(--rotationAmount));
   .link3container {
@@ -142,8 +142,6 @@ body {
     transform: rotateX(90deg) rotateZ(360deg);
   }
 }
-
-//how does this work??
 
 @keyframes orbitReverse {
   100% {
