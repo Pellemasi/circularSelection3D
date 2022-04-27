@@ -9,13 +9,14 @@ body {
 
 .WheelContainer {
   --animationSpeed: 40s;
-  --radiusSize: 10rem;
+  --radiusSize: 12em;
   --bubbleBorderRadius: 1rem;
   --bubbleHeight: 6rem;
   --bubbleWidth: 6rem;
+  margin-top: 10em;
   width: 20em;
   height: 20em;
-  background-color: aqua;
+  background-color: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -31,9 +32,13 @@ body {
 }
 
 .shadowEffect {
-  width: 90%;
-  height: 90%;
-  background: rgba(0, 0, 0, 0.402);
+  width: 30em;
+  height: 100%;
+  margin-bottom: 3em;
+  -webkit-transform: translateZ(16em);
+          transform: translateZ(16em);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0) 20%, black);
+  pointer-events: none;
 }
 
 .rotator {
@@ -47,7 +52,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
-  background-color: #f5f5dc7e;
+  background-color: none;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -95,9 +100,17 @@ body {
 }
 
 .rotator .middleContainer a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: brown;
-  width: 3em;
-  height: 3em;
+  width: 6em;
+  height: 6em;
+  border-radius: 2em;
   -webkit-animation: orbitReverse var(--animationSpeed) linear infinite;
           animation: orbitReverse var(--animationSpeed) linear infinite;
 }
@@ -114,19 +127,11 @@ body {
           align-items: center;
 }
 
-.rotator div div {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  position: absolute;
-}
-
 .rotator div div div {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  position: relative;
   margin-left: var(--radiusSize);
   border-radius: 1em;
-  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
