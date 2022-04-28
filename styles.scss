@@ -10,7 +10,7 @@ body {
 .WheelContainer {
   // Menu parameters----------------------
   --animationSpeed: 40s;
-  --radiusSize: 12em;
+  --radiusSize: 11em;
 
   --bubbleBorderRadius: 0.5rem;
   --bubbleHeight: 6rem;
@@ -37,7 +37,7 @@ body {
   height: 100%;
   margin-bottom: 3em;
   //how do I make this now overlay the textbox selections, but still give shadow effect??
-  transform: translateZ(18em);
+  transform: translateZ(calc(5em + var(--radiusSize)));
   background-image: radial-gradient(
     circle,
     rgba(255, 255, 255, 0) /* Highlight amount */ 10%,

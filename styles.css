@@ -10,7 +10,7 @@ body {
 
 .WheelContainer {
   --animationSpeed: 40s;
-  --radiusSize: 12em;
+  --radiusSize: 11em;
   --bubbleBorderRadius: 0.5rem;
   --bubbleHeight: 6rem;
   --bubbleWidth: 6rem;
@@ -36,8 +36,8 @@ body {
   width: 30em;
   height: 100%;
   margin-bottom: 3em;
-  -webkit-transform: translateZ(18em);
-          transform: translateZ(18em);
+  -webkit-transform: translateZ(calc(5em + var(--radiusSize)));
+          transform: translateZ(calc(5em + var(--radiusSize)));
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0) 10%, var(--backgroundColor) 99%);
   pointer-events: none;
 }
