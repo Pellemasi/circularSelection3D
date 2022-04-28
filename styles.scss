@@ -1,5 +1,5 @@
 body {
-  --backgroundColor: #1b3930;
+  --backgroundColor: #252525;
 
   background-color: var(--backgroundColor);
   display: flex;
@@ -12,7 +12,7 @@ body {
   --animationSpeed: 40s;
   --radiusSize: 12em;
 
-  --bubbleBorderRadius: 1rem;
+  --bubbleBorderRadius: 0.5rem;
   --bubbleHeight: 6rem;
   --bubbleWidth: 6rem;
 
@@ -37,11 +37,11 @@ body {
   height: 100%;
   margin-bottom: 3em;
   //how do I make this now overlay the textbox selections, but still give shadow effect??
-  transform: translateZ(16em);
+  transform: translateZ(18em);
   background-image: radial-gradient(
     circle,
     rgba(255, 255, 255, 0) /* Highlight amount */ 10%,
-    var(--backgroundColor)
+    var(--backgroundColor) 99%
   );
   pointer-events: none; //makes it transparent
 }
@@ -68,7 +68,10 @@ body {
       animation-play-state: paused;
       .link1bubble,
       .link2bubble,
-      .link3bubble {
+      .link3bubble,
+      .link4bubble,
+      .link5bubble,
+      .link6bubble {
         animation-play-state: paused;
       }
     }
@@ -86,11 +89,29 @@ body {
       display: flex;
       place-content: center;
       align-items: center;
-      background-color: brown;
-      width: 6em;
-      height: 6em;
-      border-radius: 2em;
+      background-color: rgb(117, 53, 197);
+      color: white;
+      width: 8em;
+      height: 8em;
+      border-radius: var(--bubbleBorderRadius);
       animation: orbitReverse var(--animationSpeed) linear infinite;
+      transition-duration: 0.6s;
+      box-shadow: 0 0 3rem var(--backgroundColor);
+      &:hover {
+        box-shadow: 0 0 1em rgba(222, 222, 222, 0.667);
+      }
+
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--bubbleBorderRadius);
+        opacity: 1;
+        transition-duration: 0.6s;
+        &:hover {
+          opacity: 0;
+        }
+      }
     }
   }
 
@@ -118,8 +139,8 @@ body {
         a {
           //overall link bubble settings
           border-radius: var(--bubbleBorderRadius);
-          background-color: #f04db7;
-          box-shadow: 0 0 0.5em #000a inset;
+          background-color: #3c83df;
+
           //reverse adjust to overall circle animation (links keep facing forwards)
           animation: orbitReverse var(--animationSpeed) linear infinite;
           display: flex;
@@ -131,6 +152,24 @@ body {
           width: var(--bubbleWidth);
           height: var(--bubbleHeight);
           color: antiquewhite;
+          transition-duration: 0.6s;
+          &:hover {
+            box-shadow: 0 0 1em rgba(222, 222, 222, 0.667);
+          }
+          //overall image nesting settings
+          p {
+          }
+          img {
+            border-radius: var(--bubbleBorderRadius);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition-duration: 0.6s;
+            opacity: 1;
+            &:hover {
+              opacity: 0;
+            }
+          }
         }
       }
     }
@@ -141,12 +180,6 @@ body {
 
 .hub {
   transform: rotateX(-90deg) rotateY(var(--rotationAmount));
-  .link3bubble {
-  }
-  .link2bubble {
-  }
-  .link1bubble {
-  }
 }
 
 //individual link container rotations (360° / amount)
@@ -161,7 +194,7 @@ body {
 }
 
 .center2pivit {
-  --rotationAmount: 72deg;
+  --rotationAmount: 60deg;
 
   transform: rotateZ(var(--rotationAmount));
   position: absolute;
@@ -170,10 +203,38 @@ body {
 }
 
 .center3pivit {
-  --rotationAmount: 144deg;
-
+  --rotationAmount: 120deg;
+  position: absolute;
   transform: rotateZ(var(--rotationAmount));
   .link3container {
+  }
+}
+
+.center4pivit {
+  --rotationAmount: 180deg;
+  position: absolute;
+  transform: rotateZ(var(--rotationAmount));
+  .link4container {
+  }
+}
+
+.center5pivit {
+  --rotationAmount: 240deg;
+  position: absolute;
+  transform: rotateZ(var(--rotationAmount));
+  .link5container {
+  }
+}
+
+.center6pivit {
+  position: absolute;
+  --rotationAmount: 300deg;
+  transform: rotateZ(var(--rotationAmount));
+  .link6container {
+    .link6bubble {
+      background-color: rgb(248, 248, 248);
+      color: black;
+    }
   }
 }
 

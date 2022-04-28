@@ -1,5 +1,5 @@
 body {
-  --backgroundColor: #1b3930;
+  --backgroundColor: #252525;
   background-color: var(--backgroundColor);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11,7 +11,7 @@ body {
 .WheelContainer {
   --animationSpeed: 40s;
   --radiusSize: 12em;
-  --bubbleBorderRadius: 1rem;
+  --bubbleBorderRadius: 0.5rem;
   --bubbleHeight: 6rem;
   --bubbleWidth: 6rem;
   margin-top: 10em;
@@ -36,9 +36,9 @@ body {
   width: 30em;
   height: 100%;
   margin-bottom: 3em;
-  -webkit-transform: translateZ(16em);
-          transform: translateZ(16em);
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0) 10%, var(--backgroundColor));
+  -webkit-transform: translateZ(18em);
+          transform: translateZ(18em);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0) 10%, var(--backgroundColor) 99%);
   pointer-events: none;
 }
 
@@ -81,7 +81,10 @@ body {
 
 .rotator:hover div .link1bubble,
 .rotator:hover div .link2bubble,
-.rotator:hover div .link3bubble {
+.rotator:hover div .link3bubble,
+.rotator:hover div .link4bubble,
+.rotator:hover div .link5bubble,
+.rotator:hover div .link6bubble {
   -webkit-animation-play-state: paused;
           animation-play-state: paused;
 }
@@ -108,12 +111,36 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: brown;
-  width: 6em;
-  height: 6em;
-  border-radius: 2em;
+  background-color: #7535c5;
+  color: white;
+  width: 8em;
+  height: 8em;
+  border-radius: var(--bubbleBorderRadius);
   -webkit-animation: orbitReverse var(--animationSpeed) linear infinite;
           animation: orbitReverse var(--animationSpeed) linear infinite;
+  -webkit-transition-duration: 0.6s;
+          transition-duration: 0.6s;
+  -webkit-box-shadow: 0 0 3rem var(--backgroundColor);
+          box-shadow: 0 0 3rem var(--backgroundColor);
+}
+
+.rotator .middleContainer a:hover {
+  -webkit-box-shadow: 0 0 1em rgba(222, 222, 222, 0.667);
+          box-shadow: 0 0 1em rgba(222, 222, 222, 0.667);
+}
+
+.rotator .middleContainer a img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--bubbleBorderRadius);
+  opacity: 1;
+  -webkit-transition-duration: 0.6s;
+          transition-duration: 0.6s;
+}
+
+.rotator .middleContainer a img:hover {
+  opacity: 0;
 }
 
 .rotator div {
@@ -146,9 +173,7 @@ body {
 
 .rotator div div div a {
   border-radius: var(--bubbleBorderRadius);
-  background-color: #f04db7;
-  -webkit-box-shadow: 0 0 0.5em #000a inset;
-          box-shadow: 0 0 0.5em #000a inset;
+  background-color: #3c83df;
   -webkit-animation: orbitReverse var(--animationSpeed) linear infinite;
           animation: orbitReverse var(--animationSpeed) linear infinite;
   display: -webkit-box;
@@ -164,6 +189,27 @@ body {
   width: var(--bubbleWidth);
   height: var(--bubbleHeight);
   color: antiquewhite;
+  -webkit-transition-duration: 0.6s;
+          transition-duration: 0.6s;
+}
+
+.rotator div div div a:hover {
+  -webkit-box-shadow: 0 0 1em rgba(222, 222, 222, 0.667);
+          box-shadow: 0 0 1em rgba(222, 222, 222, 0.667);
+}
+
+.rotator div div div a img {
+  border-radius: var(--bubbleBorderRadius);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transition-duration: 0.6s;
+          transition-duration: 0.6s;
+  opacity: 1;
+}
+
+.rotator div div div a img:hover {
+  opacity: 0;
 }
 
 .hub {
@@ -179,16 +225,43 @@ body {
 }
 
 .center2pivit {
-  --rotationAmount: 72deg;
+  --rotationAmount: 60deg;
   -webkit-transform: rotateZ(var(--rotationAmount));
           transform: rotateZ(var(--rotationAmount));
   position: absolute;
 }
 
 .center3pivit {
-  --rotationAmount: 144deg;
+  --rotationAmount: 120deg;
+  position: absolute;
   -webkit-transform: rotateZ(var(--rotationAmount));
           transform: rotateZ(var(--rotationAmount));
+}
+
+.center4pivit {
+  --rotationAmount: 180deg;
+  position: absolute;
+  -webkit-transform: rotateZ(var(--rotationAmount));
+          transform: rotateZ(var(--rotationAmount));
+}
+
+.center5pivit {
+  --rotationAmount: 240deg;
+  position: absolute;
+  -webkit-transform: rotateZ(var(--rotationAmount));
+          transform: rotateZ(var(--rotationAmount));
+}
+
+.center6pivit {
+  position: absolute;
+  --rotationAmount: 300deg;
+  -webkit-transform: rotateZ(var(--rotationAmount));
+          transform: rotateZ(var(--rotationAmount));
+}
+
+.center6pivit .link6container .link6bubble {
+  background-color: #f8f8f8;
+  color: black;
 }
 
 @-webkit-keyframes orbit {
